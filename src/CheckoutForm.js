@@ -83,6 +83,17 @@ export default function CheckoutForm() {
            
             <CardSection />
             <button style={{ margin: '30px 0', font: '14px' }} disabled={!stripe}>Update Credit Card</button>
+            <h4>Sample testing card numbers</h4>
+            <ul>
+                <li>4242424242424242 - Good</li>
+                <li>5555555555554444 - Good</li>
+                <li>378282246310005 - Good</li>
+                <li>6011111111111117 - Good</li>
+                <li>4000000000000002 - Decline</li>
+                <li>4000000000009995 - Decline (Insufficient funds)</li>
+                <li>4000000000000069 - Decline (Expired card)</li>
+                <li>4000000000000127 - Decline (Incorrect CVC)</li>
+            </ul>
         </form>
     );
 }
