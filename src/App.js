@@ -1,25 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+
+import CheckoutForm from './CheckoutForm';
+
+const stripePromise = loadStripe(
+  'pk_test_51KDtbtGIRieBjuWQ1Dq1hONGsf8hfwQWNKcIY4ir8Siogdk58eQwKve8HYp2Rw5rMzKhsRQCHR3J64sQnWplYm6e00dhSKqE3g'
+);
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Elements stripe={stripePromise}>
+        <CheckoutForm />
+      </Elements>     
     </div>
   );
-}
+};
 
 export default App;
